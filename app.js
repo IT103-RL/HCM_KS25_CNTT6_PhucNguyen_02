@@ -11,22 +11,17 @@ while (true) {
         "0. Thoát chương trình\n\n" +
         "Vui lòng chọn (0 - 3):"
     );
-
     choice = choice ? choice.trim() : null;
-
     if (choice === "0") {
         console.log(`Kết thúc ca. Doanh thu: ${totalRevenue} VNĐ | Trả phòng: ${totalCheckouts}`);
         break;
     }
-
     switch (choice) {
         case "1": {
             currentReservationCode = "";
             isReservationValid = false;
-
             let code = prompt("Nhập mã đặt phòng:");
             code = code ? code.trim().toUpperCase() : "";
-
             if (!code) console.log("Chưa nhập mã đặt phòng");
             else if (code.length < 6) console.log("Lỗi: Độ dài nhỏ hơn 6 ký tự");
             else if (!code.startsWith("HTL-")) console.log("Lỗi: Sai tiền tố \"HTL-\"");
@@ -38,24 +33,19 @@ while (true) {
             }
             break;
         }
-
         case "2": {
             if (!isReservationValid) {
                 console.log("Chưa có mã đặt phòng hợp lệ. Hãy chọn Case 1 trước!");
                 break;
             }
-
             let nights = askInt("Nhập số đêm lưu trú:");
             if (nights === null) break;
-
             let price = askInt("Nhập giá phòng/đêm (VNĐ):");
             if (price === null) break;
-
             let baseCost = nights * price;
             let discount = Math.round(nights >= 4 ? baseCost * 0.1 : 0);
             let serviceFee = Math.round((baseCost - discount) * 0.08);
             let total = baseCost - discount + serviceFee;
-
             console.log(`\n--- HÓA ĐƠN ---
                         Mã: ${currentReservationCode}
                         Đêm: ${nights} | Giá: ${price} VNĐ
@@ -69,6 +59,11 @@ while (true) {
             isReservationValid = false;
             break;
         }
+        // case "3":
+        //     break;
+
+
+
 
 
     }
