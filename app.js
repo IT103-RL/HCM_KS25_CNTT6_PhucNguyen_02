@@ -70,18 +70,6 @@ while (true) {
             break;
         }
 
-        case "3": {
-            let card = prompt("Nhập mã thẻ may mắn:");
-            card = card ? card.trim() : "";
 
-            if (!/^[0-9]+$/.test(card) \vert{}\vert{} card.length < 2 \vert{}\vert{} /^0+$/.test(card)) {
-                console.log("Mã thẻ không hợp lệ!");
-                break;
-            }
-        }
-
-        default:
-            console.log("Lựa chọn không hợp lệ!");
-            break;
     }
 }
